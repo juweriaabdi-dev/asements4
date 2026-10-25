@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Banking Account Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            padding: 25px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0f766e;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 18px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .submit {
+            background: #0f766e;
+            color: white;
+        }
+
+        .reset {
+            background: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Banking Account Form</h1>
+
+    <form action="process.php" method="POST"
+          enctype="multipart/form-data">
+
+        <label>Customer Full Name</label>
+        <input type="text" name="full_name" required>
+
+        <label>Account Number</label>
+        <input type="text" name="account_number" required>
+
+        <label>Gender</label>
+        <input type="radio" name="gender" value="Male" required> Male
+        <input type="radio" name="gender" value="Female"> Female
+
+        <label>Account Type</label>
+        <select name="account_type" required>
+            <option value="">Select Account Type</option>
+            <option value="Savings">Savings</option>
+            <option value="Current">Current</option>
+            <option value="Business">Business</option>
+        </select>
+
+        <label>Opening Balance ($)</label>
+        <input type="number" name="opening_balance"
+               min="0" step="0.01" required>
+
+        <label>Transaction Type</label>
+        <input type="radio" name="transaction_type"
+               value="Deposit" required> Deposit
+        <input type="radio" name="transaction_type"
+               value="Withdrawal"> Withdrawal
+
+        <label>Transaction Amount ($)</label>
+        <input type="number" name="transaction_amount"
+               min="0.01" step="0.01" required>
+
+        <label>Account Duration (Years)</label>
+        <input type="number" name="duration"
+               min="0" step="1" required>
+
+        <label>Identification Document</label>
+        <input type="file" name="document" required>
+
+        <button type="submit" class="submit">
+            Process Transaction
+        </button>
+
+        <button type="reset" class="reset">Reset</button>
+
+    </form>
+</div>
+
+</body>
+</html>
